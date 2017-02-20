@@ -14,13 +14,14 @@ public class RentalCalculator {
 			}
 		} else if (movie.getPriceCode().equals("childrens")) {
 
-			amount = new BigDecimal("1.50");
-			if (days > 3) {
-				BigDecimal extraDays = new BigDecimal(days - 3);
-				amount = amount.add(new BigDecimal("1.50").multiply(extraDays));
-			}
-		} else { //new release
-			
+			amount = movie.calculateFees(days);
+			// amount = new BigDecimal("1.50");
+			// if (days > 3) {
+			// BigDecimal extraDays = new BigDecimal(days - 3);
+			// amount = amount.add(new BigDecimal("1.50").multiply(extraDays));
+			// }
+		} else { // new release
+
 			BigDecimal rentalDays = new BigDecimal(days);
 			amount = new BigDecimal("3.00").multiply(rentalDays);
 
